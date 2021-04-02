@@ -43,6 +43,21 @@ app.post('/login', (req, res) => {
   }
 });
 
+app.post('/newuser', (req, res) => {
+  const name = req.body.name;
+  const age = req.body.age;
+
+  if (name === 'Alex' && age >= 20) {
+    res.json({
+      success: true,
+      message: 'hello admin:3',
+      token: 'hacked',
+    });
+  } else {
+    res.json({ success: false, message: 'who are you? O_o' });
+  }
+});
+
 app.listen(8000, () => {
   console.log('server is running');
 });
